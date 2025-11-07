@@ -121,7 +121,7 @@ func enemy_attack():
 	var damage = calculate_damage(enemy_stats, player_stats)
 	
 	if player_stats.get("defending", false):
-		damage = int(damage / 2)
+		damage = damage // 2
 		player_stats["defending"] = false
 	
 	player_stats["health"] = player_stats.get("health", 100) - damage
@@ -136,7 +136,7 @@ func enemy_attack():
 
 func calculate_damage(attacker: Dictionary, defender: Dictionary) -> int:
 	var base_damage = attacker.get("strength", 5)
-	var defense = int(defender.get("strength", 5) / 2)
+	var defense = defender.get("strength", 5) // 2
 	var damage = max(1, base_damage - defense + randi() % 5)
 	return damage
 
