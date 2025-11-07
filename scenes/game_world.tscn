@@ -1,0 +1,112 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxm5k8n3yp7qc"]
+
+[ext_resource type="Script" path="res://scripts/game_world.gd" id="1_game_world"]
+[ext_resource type="PackedScene" uid="uid://d2vh8ym5kp9nb" path="res://scenes/player.tscn" id="2_player"]
+
+[node name="GameWorld" type="Node2D"]
+script = ExtResource("1_game_world")
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(640, 360)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="StatsPanel" type="Panel" parent="UILayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 210.0
+offset_bottom = 150.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/StatsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="NameLabel" type="Label" parent="UILayer/StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Lam-Ang"
+horizontal_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="UILayer/StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Level: 1"
+
+[node name="HealthLabel" type="Label" parent="UILayer/StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Health: 100/100"
+
+[node name="ExpLabel" type="Label" parent="UILayer/StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Experience: 0"
+
+[node name="InteractionHint" type="Label" parent="UILayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press E to interact"
+horizontal_alignment = 1
+
+[node name="MenuButton" type="Button" parent="UILayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -110.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 50.0
+grow_horizontal = 0
+text = "Menu"
+
+[node name="Script" type="Node" parent="."]
+
+[node name="@Script@1" type="Script" parent="Script"]
+script/source = "extends Node
+
+func _ready():
+	var menu_button = get_node(\"../UILayer/MenuButton\")
+	menu_button.pressed.connect(_on_menu_pressed)
+	
+	# Update stats display
+	update_stats_display()
+	
+	if GameManager:
+		GameManager.game_progress_updated.connect(update_stats_display)
+
+func _on_menu_pressed():
+	get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
+
+func update_stats_display():
+	if not GameManager:
+		return
+	
+	var stats = GameManager.get_player_stats()
+	var level_label = get_node(\"../UILayer/StatsPanel/VBoxContainer/LevelLabel\")
+	var health_label = get_node(\"../UILayer/StatsPanel/VBoxContainer/HealthLabel\")
+	var exp_label = get_node(\"../UILayer/StatsPanel/VBoxContainer/ExpLabel\")
+	
+	if level_label:
+		level_label.text = \"Level: \" + str(stats.get(\"level\", 1))
+	if health_label:
+		health_label.text = \"Health: \" + str(stats.get(\"health\", 100)) + \"/\" + str(stats.get(\"max_health\", 100))
+	if exp_label:
+		exp_label.text = \"Experience: \" + str(stats.get(\"experience\", 0))
+"
