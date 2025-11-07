@@ -31,6 +31,10 @@ func load_game_data():
 	var file_path = "res://data/game_data.json"
 	if FileAccess.file_exists(file_path):
 		var file = FileAccess.open(file_path, FileAccess.READ)
+		if not file:
+			print("Error: Could not open game data file")
+			return
+		
 		var json_string = file.get_as_text()
 		file.close()
 		
@@ -153,7 +157,7 @@ func load_game():
 			var save_data = save_file.get_var()
 			save_file.close()
 			
-			if save_data:
+			if save_data and typeof(save_data) == TYPE_DICTIONARY:
 				player_stats = save_data.get("player_stats", player_stats)
 				player_progress = save_data.get("player_progress", player_progress)
 				inventory = save_data.get("inventory", inventory)
@@ -162,7 +166,7 @@ func load_game():
 				print("Game loaded successfully")
 				game_progress_updated.emit()
 			else:
-				print("Failed to load save data")
+				print("Failed to load save data: Invalid save file format")
 		else:
 			print("Failed to open save file")
 	else:

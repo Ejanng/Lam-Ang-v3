@@ -136,9 +136,9 @@ func enemy_attack():
 
 func calculate_damage(attacker: Dictionary, defender: Dictionary) -> int:
 	var base_damage = attacker.get("strength", 5)
-	var defense = defender.get("strength", 5) / 2
+	var defense = int(defender.get("strength", 5) / 2)
 	var damage = max(1, base_damage - defense + randi() % 5)
-	return int(damage)
+	return damage
 
 func victory():
 	log_message("Victory! The enemy has been defeated!")

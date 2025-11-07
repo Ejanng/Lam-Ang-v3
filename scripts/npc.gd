@@ -25,12 +25,12 @@ func _ready():
 		npc_dialogue = get_default_dialogue()
 
 func _on_body_entered(body):
-	if body.name == "Player":
+	if body.is_in_group("player"):
 		is_player_nearby = true
 		show_interaction_prompt()
 
 func _on_body_exited(body):
-	if body.name == "Player":
+	if body.is_in_group("player"):
 		is_player_nearby = false
 		hide_interaction_prompt()
 

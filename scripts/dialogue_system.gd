@@ -64,7 +64,10 @@ func hide_choices():
 	clear_choices()
 
 func clear_choices():
-	for child in choices_container.get_children():
+	# Remove all choice buttons immediately
+	var children = choices_container.get_children()
+	for child in children:
+		choices_container.remove_child(child)
 		child.queue_free()
 
 func _on_continue_pressed():

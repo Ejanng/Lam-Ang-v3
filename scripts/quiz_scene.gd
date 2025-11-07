@@ -14,6 +14,7 @@ extends Control
 var current_chapter_data: Dictionary
 var selected_answer: int = -1
 var option_buttons: Array = []
+var button_group: ButtonGroup = ButtonGroup.new()
 
 func _ready():
 	submit_button.pressed.connect(_on_submit_pressed)
@@ -42,6 +43,7 @@ func display_quiz():
 			var button = Button.new()
 			button.text = options[i]
 			button.toggle_mode = true
+			button.button_group = button_group
 			button.custom_minimum_size = Vector2(500, 50)
 			button.pressed.connect(_on_option_selected.bind(i))
 			options_container.add_child(button)
@@ -49,10 +51,6 @@ func display_quiz():
 
 func _on_option_selected(index: int):
 	selected_answer = index
-	# Deselect other buttons
-	for i in range(option_buttons.size()):
-		if i != index:
-			option_buttons[i].button_pressed = false
 
 func _on_submit_pressed():
 	if selected_answer == -1:

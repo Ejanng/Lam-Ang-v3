@@ -50,10 +50,10 @@ func populate_chapters():
 		chapter_list.add_child(spacer)
 
 func _on_chapter_selected(chapter_id: String):
+	# Store selected chapter before loading the scene
+	GameManager.current_chapter = get_chapter_index(chapter_id)
 	# Load the selected chapter
 	get_tree().change_scene_to_file("res://scenes/chapter_scene.tscn")
-	# Store selected chapter for the next scene
-	GameManager.current_chapter = get_chapter_index(chapter_id)
 
 func get_chapter_index(chapter_id: String) -> int:
 	var chapters = GameManager.story_data.get("story_chapters", [])

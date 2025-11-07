@@ -14,13 +14,17 @@ var can_move: bool = true
 enum State { IDLE, WALKING, INTERACTING }
 var current_state = State.IDLE
 
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D if has_node("AnimatedSprite2D") else null
-@onready var interaction_area: Area2D = $InteractionArea if has_node("InteractionArea") else null
+var animated_sprite: AnimatedSprite2D = null
+var interaction_area: Area2D = null
+var last_direction: Vector2 = Vector2.DOWN
 
 signal interacted_with(object)
 
 func _ready():
-	if not has_node("AnimatedSprite2D"):
+	animated_sprite = get_node_or_null("AnimatedSprite2D")
+	interaction_area = get_node_or_null("InteractionArea")
+	
+	if not animated_sprite:
 		# Create a placeholder sprite if AnimatedSprite2D doesn't exist
 		var sprite = Sprite2D.new()
 		sprite.name = "Sprite2D"
@@ -57,6 +61,7 @@ func move(delta):
 	if input_vector != Vector2.ZERO:
 		velocity = velocity.move_toward(input_vector * speed, acceleration * delta)
 		current_state = State.WALKING
+		last_direction = input_vector
 	else:
 		apply_friction(delta)
 		current_state = State.IDLE
@@ -80,14 +85,14 @@ func update_animation():
 	
 	match current_state:
 		State.IDLE:
-			if input_vector.x > 0:
+			if last_direction.x > 0:
 				animated_sprite.play("idle_right")
-			elif input_vector.x < 0:
+			elif last_direction.x < 0:
 				animated_sprite.play("idle_left")
-			elif input_vector.y != 0:
-				animated_sprite.play("idle_down")
+			elif last_direction.y < 0:
+				animated_sprite.play("idle_up")
 			else:
-				animated_sprite.play("idle")
+				animated_sprite.play("idle_down")
 		
 		State.WALKING:
 			if input_vector.x > 0:
