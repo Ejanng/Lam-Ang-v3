@@ -1,0 +1,236 @@
+{
+	"story_chapters": [
+		{
+			"id": "chapter_1",
+			"title": "The Birth of Lam-Ang",
+			"description": "Learn about the miraculous birth and early life of Lam-Ang",
+			"content": "Lam-Ang was an extraordinary child born to Don Juan and Namongan. Even before birth, he could speak and chose his own name. After his father disappeared, young Lam-Ang set out to find him.",
+			"educational_points": [
+				"Lam-Ang possessed supernatural abilities from birth",
+				"The epic showcases Ilocano values of family and bravery",
+				"The story reflects pre-colonial Filipino culture"
+			],
+			"quiz": {
+				"question": "What made Lam-Ang special from birth?",
+				"options": [
+					"He could speak before being born",
+					"He was very tall",
+					"He had magical weapons",
+					"He could fly"
+				],
+				"correct": 0,
+				"explanation": "Lam-Ang was extraordinary because he could speak even before birth and chose his own name."
+			}
+		},
+		{
+			"id": "chapter_2",
+			"title": "The Quest for Don Juan",
+			"description": "Follow Lam-Ang on his journey to avenge his father",
+			"content": "As Lam-Ang grew, he learned that his father Don Juan had been killed by the Igorot tribe. With his supernatural strength and loyal companions - his rooster and dog - he set out to avenge his father's death.",
+			"educational_points": [
+				"Shows the importance of filial duty in Ilocano culture",
+				"Demonstrates courage and determination",
+				"Illustrates the role of animal companions in epic literature"
+			],
+			"quiz": {
+				"question": "Who were Lam-Ang's loyal companions?",
+				"options": [
+					"A horse and a bird",
+					"A rooster and a dog",
+					"A cat and a fish",
+					"A snake and an eagle"
+				],
+				"correct": 1,
+				"explanation": "Lam-Ang's faithful companions were his magical rooster and dog who helped him on his adventures."
+			}
+		},
+		{
+			"id": "chapter_3",
+			"title": "The Courtship of Ines Kannoyan",
+			"description": "Witness Lam-Ang's pursuit of his true love",
+			"content": "After avenging his father, Lam-Ang fell in love with the beautiful Ines Kannoyan. To win her hand, he had to compete with many suitors and demonstrate his exceptional abilities. His supernatural powers and charm eventually won her heart.",
+			"educational_points": [
+				"Reflects traditional courtship practices in Ilocano society",
+				"Shows the value of perseverance in achieving goals",
+				"Highlights gender roles in pre-colonial Philippines"
+			],
+			"quiz": {
+				"question": "Who did Lam-Ang wish to marry?",
+				"options": [
+					"Princess Maria",
+					"Ines Kannoyan",
+					"Namongan",
+					"Dona Rosita"
+				],
+				"correct": 1,
+				"explanation": "Lam-Ang fell in love with and married the beautiful Ines Kannoyan after proving his worth."
+			}
+		},
+		{
+			"id": "chapter_4",
+			"title": "The Great Trial",
+			"description": "Experience Lam-Ang's greatest challenges",
+			"content": "To prove himself worthy of Ines Kannoyan, Lam-Ang had to complete several impossible tasks. He showed his strength by defeating numerous enemies and his intelligence by solving difficult riddles. His rooster's crow could destroy buildings and his dog's bark could bring them back.",
+			"educational_points": [
+				"Supernatural elements symbolize exceptional human qualities",
+				"Tests and trials are common in hero epics",
+				"The story teaches about inner strength and character"
+			],
+			"quiz": {
+				"question": "What special power did Lam-Ang's rooster have?",
+				"options": [
+					"It could breathe fire",
+					"Its crow could destroy buildings",
+					"It could turn invisible",
+					"It could predict the future"
+				],
+				"correct": 1,
+				"explanation": "Lam-Ang's magical rooster had a crow so powerful it could destroy buildings."
+			}
+		},
+		{
+			"id": "chapter_5",
+			"title": "Death and Resurrection",
+			"description": "Learn about Lam-Ang's ultimate trial",
+			"content": "While diving for fish to please his wife, Lam-Ang was swallowed by a giant fish called Berkakan and died. However, with the help of his rooster and dog, and the power of his bones, he was miraculously brought back to life. This resurrection symbolizes the triumph of good over evil.",
+			"educational_points": [
+				"Death and rebirth themes in Philippine mythology",
+				"The power of love and loyalty to overcome death",
+				"Represents the cycle of life in Filipino beliefs"
+			],
+			"quiz": {
+				"question": "How was Lam-Ang brought back to life?",
+				"options": [
+					"By a magic potion",
+					"By his rooster and dog retrieving his bones",
+					"By a powerful shaman",
+					"By the gods themselves"
+				],
+				"correct": 1,
+				"explanation": "Lam-Ang's loyal rooster and dog retrieved his bones from the fish, and through their help, he was resurrected."
+			}
+		}
+	],
+	"characters": [
+		{
+			"id": "lam_ang",
+			"name": "Lam-Ang",
+			"description": "The legendary hero with supernatural powers, brave and loyal",
+			"stats": {
+				"strength": 10,
+				"intelligence": 8,
+				"wisdom": 7,
+				"charisma": 9
+			}
+		},
+		{
+			"id": "ines_kannoyan",
+			"name": "Ines Kannoyan",
+			"description": "Beautiful and virtuous woman who became Lam-Ang's wife",
+			"stats": {
+				"strength": 5,
+				"intelligence": 8,
+				"wisdom": 9,
+				"charisma": 10
+			}
+		},
+		{
+			"id": "namongan",
+			"name": "Namongan",
+			"description": "Lam-Ang's mother, strong and supportive",
+			"stats": {
+				"strength": 6,
+				"intelligence": 7,
+				"wisdom": 10,
+				"charisma": 8
+			}
+		},
+		{
+			"id": "don_juan",
+			"name": "Don Juan",
+			"description": "Lam-Ang's father, a brave warrior",
+			"stats": {
+				"strength": 9,
+				"intelligence": 7,
+				"wisdom": 8,
+				"charisma": 7
+			}
+		}
+	],
+	"enemies": [
+		{
+			"id": "igorot_warrior",
+			"name": "Igorot Warrior",
+			"description": "Tribal warrior from the mountains",
+			"stats": {
+				"strength": 6,
+				"intelligence": 5,
+				"wisdom": 5,
+				"charisma": 4
+			},
+			"health": 50
+		},
+		{
+			"id": "suitor",
+			"name": "Rival Suitor",
+			"description": "Competitor for Ines Kannoyan's affection",
+			"stats": {
+				"strength": 5,
+				"intelligence": 6,
+				"wisdom": 5,
+				"charisma": 7
+			},
+			"health": 40
+		},
+		{
+			"id": "berkakan",
+			"name": "Berkakan",
+			"description": "Giant fish monster of the deep",
+			"stats": {
+				"strength": 10,
+				"intelligence": 3,
+				"wisdom": 3,
+				"charisma": 2
+			},
+			"health": 100
+		}
+	],
+	"items": [
+		{
+			"id": "fathers_sword",
+			"name": "Father's Sword",
+			"description": "Don Juan's legendary blade",
+			"type": "weapon",
+			"stats": {
+				"attack": 15
+			}
+		},
+		{
+			"id": "healing_herb",
+			"name": "Healing Herb",
+			"description": "Traditional Ilocano medicine",
+			"type": "consumable",
+			"stats": {
+				"healing": 25
+			}
+		},
+		{
+			"id": "magic_rooster",
+			"name": "Magic Rooster",
+			"description": "Lam-Ang's powerful companion",
+			"type": "companion",
+			"stats": {
+				"power": 20
+			}
+		},
+		{
+			"id": "loyal_dog",
+			"name": "Loyal Dog",
+			"description": "Lam-Ang's faithful canine friend",
+			"type": "companion",
+			"stats": {
+				"power": 15
+			}
+		}
+	]
+}

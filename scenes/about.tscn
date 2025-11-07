@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://ck4y8xm7qp2nb"]
+
+[node name="About" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15, 0.2, 0.3, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -300.0
+offset_right = 500.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "About Biag ni Lam-Ang"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AboutText" type="Label" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "\"Biag ni Lam-Ang\" (The Life of Lam-Ang) is an epic poem from the Ilocano people of the northern Philippines. It is one of the few epics from the pre-colonial period that has survived to the present day.
+
+THE EPIC:
+The story tells of Lam-Ang, a man of extraordinary strength and abilities who was born speaking and chose his own name. The epic follows his adventures as he:
+• Searches for his father Don Juan
+• Avenges his father's death
+• Courts and marries the beautiful Ines Kannoyan
+• Battles various enemies and supernatural creatures
+• Dies and is resurrected through the loyalty of his animal companions
+
+CULTURAL SIGNIFICANCE:
+• Reflects pre-colonial Ilocano society and values
+• Showcases indigenous Filipino storytelling traditions
+• Demonstrates the importance of family honor and bravery
+• Contains elements of animism and indigenous spirituality
+• Preserved through oral tradition before being written down
+
+EDUCATIONAL VALUE:
+This game aims to make this important piece of Philippine cultural heritage accessible and engaging for modern learners, combining storytelling with interactive gameplay and educational assessments.
+
+GAME CREDITS:
+Lam-Ang Chronicles - An Educational RPG
+Based on the Ilocano epic poem \"Biag ni Lam-Ang\"
+Created with Godot Engine"
+autowrap_mode = 3
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back to Menu"
+
+[node name="Script" type="Node" parent="."]
+
+[node name="@Script@1" type="Script" parent="Script"]
+script/source = "extends Node
+
+func _ready():
+	var back_button = get_node(\"../VBoxContainer/BackButton\")
+	back_button.pressed.connect(_on_back_pressed)
+
+func _on_back_pressed():
+	get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
+"
